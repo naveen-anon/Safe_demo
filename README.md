@@ -18,9 +18,9 @@ Made for learning, demos, and experimenting with basic web request handling usin
 
 ### 1. Clone the Repository
 ```bash
->git clone https://github.com/your-username/safe-demo.git
+git clone https://github.com/naveen-anon/Safe_demo.git
 cd safe-demo
 python3 -m venv venv
 source venv/bin/activate
 python3 safe_demo.py
-http://localhost:8000<
+http://localhost:8000
