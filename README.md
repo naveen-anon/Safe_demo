@@ -23,4 +23,5 @@ cd safe-demo
 python3 -m venv venv
 source venv/bin/activate
 python3 safe_demo.py
-http://localhost:8000
+
+ek link ganarete hoga usko apne browser pe paste krna kuch aisa link hoga http://localhost:8000
