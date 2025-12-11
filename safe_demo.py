@@ -11,10 +11,10 @@ html_form = """
 body { 
     background: #121212; 
     color: white; 
-    font-family: Arial; 
-    display:flex; 
-    justify-content:center; 
-    align-items:center; 
+    font-family: Arial;
+    display:flex;
+    justify-content:center;
+    align-items:center;
     height:100vh;
 }
 .box {
@@ -24,10 +24,10 @@ body {
     width: 300px;
 }
 input, button {
-    width:100%;
-    padding:12px;
-    margin-top:10px;
-    border-radius:10px;
+    width: 100%;
+    padding: 12px;
+    margin-top: 10px;
+    border-radius: 10px;
 }
 button {
     background: transparent;
@@ -52,9 +52,10 @@ button:active {
 """
 
 class Handler(BaseHTTPRequestHandler):
+
     def do_GET(self):
         self.send_response(200)
-        self.send_header("Content-type","text/html")
+        self.send_header("Content-type", "text/html")
         self.end_headers()
         self.wfile.write(html_form.encode())
 
@@ -65,16 +66,23 @@ class Handler(BaseHTTPRequestHandler):
         user_input = parsed.get("pass", [""])[0]
 
         response = f"""
-        <html><body style='background:#000;color:white;font-family:Arial;padding:40px;'>
+        <html>
+        <body style='background:#000;color:white;font-family:Arial;padding:40px;'>
         <h1>You typed:</h1>
         <p style='color:cyan;font-size:22px;'>{user_input}</p>
-        </body></html>
+        </body>
+        </html>
         """
         self.send_response(200)
-        self.send_header("Content-type","text/html")
+        self.send_header("Content-type", "text/html")
         self.end_headers()
         self.wfile.write(response.encode())
 
-server = HTTPServer(("0.0.0.0", 9000), Handler)
-print("OPEN: http://localhost:8000")
+
+PORT = 9000
+server = HTTPServer(("0.0.0.0", PORT), Handler)
+
+print(f"SERVER RUNNING → http://localhost:{8000}")
+print(f"OR → http://127.0.0.1:{8000}")
+
 server.serve_forever()
